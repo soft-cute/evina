@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  py: 
+    build: 
+      context: ./config
+      dockerfile: dockerfile.py
+    container_name: py
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - /home/code/ffm:/ffm
+    links:
+      - ffm
+    depends_on:
+      - ffm
+    command: python /ffm/src/start.py
+    # command: /bin/bash
+  ffm:
+    build: 
+      context: ./config
+      dockerfile: dockerfile.ffmpeg
+    container_name: ffm
+    privileged: true
+    stdin_open: true
+    tty: true
+    ports:
+      - "6666:22"
+    volumes:
+      - /home/code/ffm:/ffm
+    
