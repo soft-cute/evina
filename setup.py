@@ -10,7 +10,7 @@ from setuptools import find_packages, setup
 
 setup(name='evina',
       author='Ezong',
-      version='1.0.1',
+      version='1.0.8',
       packages=find_packages(),
       include_package_data=True,
       install_requires=['aligo', 'dynaconf', 'Faker', 'loguru', 'paramiko'],

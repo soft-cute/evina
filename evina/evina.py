@@ -9,10 +9,7 @@
 import threading
 import time
 
-from evina import douyin
-from evina import douyu
-
-from evina import config
+from evina import config, douyin, douyu
 
 
 class Evina(config.Arg, config.Env):
@@ -41,17 +38,9 @@ class Evina(config.Arg, config.Env):
                 return True
         return False
 
+
 def start():
     while True:
         sleep = config.Conf().conf.settings.sleep
-        print(config.Conf().evina_douyu.url)
         Evina()
         time.sleep(sleep)
-
-
-
-
-
-
-
-

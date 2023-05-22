@@ -10,6 +10,7 @@ import io
 import os
 from contextlib import contextmanager
 
+from aligo import EMailConfig
 from aligo.core.Auth import Auth
 from dynaconf.vendor.dotenv.compat import StringIO
 from dynaconf.vendor.dotenv.main import DotEnv
@@ -33,6 +34,3 @@ class ReplaceMent:
                     'Python-dotenv could not find configuration file %s.',
                     A.dotenv_path or '.env')
             yield StringIO('')
-
-
-

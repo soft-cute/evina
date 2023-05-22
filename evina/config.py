@@ -21,11 +21,19 @@ class Conf:
     def __init__(self) -> None:
         replacement.DotEnv._get_stream = replacement.ReplaceMent.new_get_stream
         conf_file = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__))),
-            'disposition', 'config.conf')
+            os.path.join(os.environ.get('HOME'), '.evina', 'config.conf'))
+        if not os.path.exists(conf_file):
+            logger.error(
+                ' 未发现配置文件 config.conf | 请输入: wget -O ~/.evina/config.conf https://raw.githubusercontent.com/Softcute-Ezong/type/main/evina/config.conf'
+            )
+            sys.exit()
         evina_file = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__))),
-            'disposition', 'evina.conf')
+            os.path.join(os.environ.get('HOME'), '.evina', 'evina.conf'))
+        if not os.path.exists(evina_file):
+            logger.error(
+                ' 未发现配置文件 evina.conf | 请输入: wget -O ~/.evina/evina.conf https://raw.githubusercontent.com/Softcute-Ezong/type/main/evina/evina.conf'
+            )
+            sys.exit()
 
         parse = argparse.ArgumentParser()
         parse.add_argument('--start', '-s', nargs=1, help='选择需要录制的平台。')
@@ -47,13 +55,25 @@ class Conf:
                                      load_dotenv=True,
                                      dotenv_path=evina_file,
                                      dotenv_override=True)
-
-        replacement.Auth._EMAIL_USER = self.conf.settings.email_user
-        replacement.Auth._EMAIL_PASSWORD = self.conf.settings.email_password
-        email_host = replacement.Auth._EMAIL_USER.split('@')[1].split('.')
-        replacement.Auth._EMAIL_HOST = 'smtp.{}.{}'.format(
-            email_host[0], email_host[1])
-        Aligo(email=(self.conf.settings.email_user, '阿里云盘登录二维码验证'))
+        if self.conf.settings.email_user == 'XXXXXX':
+            logger.error(
+                " 未配置验证邮箱 | 修改 config.conf EVINA_SETTINGS__EMAIL_USER = 'XXXXXX'"
+            )
+            sys.exit()
+        if self.conf.settings.email_password == 'XXXXXX':
+            logger.error(
+                " 未配置邮箱 SMTP | 修改 config.conf EVINA_SETTINGS__EMAIL_PASSWORD = 'XXXXXX'"
+            )
+            sys.exit()
+        email_host = self.conf.settings.email_user.split('@')[1].split('.')
+        email_config = replacement.EMailConfig(
+            email=self.conf.settings.email_user,
+            host='smtp.{}.{}'.format(email_host[0], email_host[1]),
+            port=465,
+            password=self.conf.settings.email_password,
+            user=self.conf.settings.email_user,
+            content='阿里云盘登录二维码验证')
+        Aligo(email=email_config)
 
 
 class Arg(Conf):
