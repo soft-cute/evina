@@ -10,6 +10,9 @@ jobs:
     steps: 
       - name: checkout actions
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: set up python 3.9
         uses: actions/setup-python@v4
@@ -32,3 +35,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.github_token }}
+          branch: ${{ github.ref }}
