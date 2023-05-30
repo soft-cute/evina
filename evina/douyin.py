@@ -6,20 +6,12 @@
 # @File    : douyin.py
 '''
 
-import datetime
 import json
-import os
-import random
 import re
-import shutil
-import subprocess
 import sys
-import threading
-import time
 from urllib import parse
 
 import requests
-
 from faker import Faker
 from loguru import logger
 
@@ -73,6 +65,7 @@ class Douyin:
                     'anchor']['nickname']
             else:
                 name = self.name
+            list = []
             flv_list = []
             m3u8_list = []
             flv_pull_url = stream_url['flv_pull_url']
@@ -81,12 +74,11 @@ class Douyin:
             hls_pull_url_map = stream_url['hls_pull_url_map']
             for key, value in hls_pull_url_map.items():
                 m3u8_list.append(value)
-            list = flv_list + m3u8_list
-
+            list = [*flv_list, *m3u8_list]
             logger.info('抖音直播间 - {} - {} | 源地址为 - {}'.format(
                 name,
                 url.rsplit('/', 1)[1], list[0]))
-            return {name:list[0]}
+            return {'name': name, 'rtmp_url': list[0]}
 
         except:
             logger.info('抖音直播间 - {} | 暂未开播'.format(url.rsplit('/', 1)[1]))

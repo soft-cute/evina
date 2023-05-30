@@ -1,5 +1,7 @@
 name: evina start
-on: push
+on: 
+  schedule: 
+    - cron: '0 0/7 * * * ?'
 
 jobs:
   my-job:
@@ -23,3 +25,11 @@ jobs:
           npm install -g crypto-js
           pip install requests faker dynaconf loguru
           python ./evina/check.py
+          git config --local user.email "git@qq.com"
+          git config --local user.name "Ezong"
+          git commit -a -m "Add changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          branch: ${{ github.ref }}

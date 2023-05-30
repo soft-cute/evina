@@ -1,0 +1,5 @@
+evina:
+  '0':
+    name: "\u871C\u6843\u6C34\u716E\u745C"
+    rtmp_url: http://pull-flv-l26.douyincdn.com/stage/stream-689567909127389323_or4.flv?expire=647ef71f&sign=dce1c243ee49fc32d1b08ef733c5bba0
+    status: stopping

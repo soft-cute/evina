@@ -12,10 +12,7 @@ import json
 import os
 import random
 import re
-import shutil
-import subprocess
 import sys
-import threading
 import time
 
 import requests
@@ -121,7 +118,10 @@ class Douyu:
             name = self.name
 
         logger.info('斗鱼直播间 - {} - {} | 源地址为 - {}'.format(name, self.rid, http))
-        return {name:http}
+        return {
+            'name':name,
+            'rtmp_url':http
+        }
 
 
     def get_name(self):

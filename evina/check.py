@@ -6,10 +6,14 @@
 # @File    : check.py
 '''
 
+import os
+import time
+
 from dynaconf import Dynaconf
 from loguru import logger
-import os
-import douyin,douyu
+
+import douyin
+import douyu
 
 
 class Check:
@@ -60,21 +64,36 @@ class Evina(Env):
 
         super().__init__()
         list = []
+        dict = {}
         for start in self.dict:
             if start == 'douyu':
                 for url, name in self.dict[start].items():
                     if 'http' in url and not url.endswith('/'):
                         url = url.rsplit('/', 1)[1]
                     douyu_url = douyu.Douyu().start(url, name)
-                    if douyu_url != None :
+                    time.sleep(3)
+                    if douyu_url != None:
                         list.append(douyu_url)
-
 
             if start == 'douyin':
                 for url, name in self.dict[start].items():
                     douyin_url = douyin.Douyin().start(name, url)
-                    if douyin_url != None :
+                    time.sleep(3)
+                    if douyin_url != None:
                         list.append(douyin_url)
-        print(list)
 
-Evina()
+        dict['evina'] = {}
+        for num, conf in enumerate(list):
+            conf['status'] = 'stopping'
+            dict['evina'][num] = conf
+        file = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), '..', 'config',
+                         'config.yml'))
+        self.douyu.evina = {}
+        self.douyu.evina.update(dict)
+        self.douyu.evina.to_yaml(file)
+
+
+if __name__ == '__main__':
+
+    Evina()
