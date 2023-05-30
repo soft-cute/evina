@@ -25,8 +25,8 @@ jobs:
           npm install -g crypto-js
           pip install requests faker dynaconf loguru
           python ./evina/check.py
-          git config --local user.email "git@qq.com"
-          git config --local user.name "Ezong"
+          git config --local user.email "1933990359@qq.com"
+          git config --local user.name "softcute"
           git commit -a -m "Add changes"
       - name: Push changes
         uses: ad-m/github-push-action@master
