@@ -1,7 +1,7 @@
 name: evina start
 on: 
   schedule: 
-    - cron: '0 0/7 * * * ?'
+    - cron: '0 0/7 * * *'
 
 jobs:
   my-job:
