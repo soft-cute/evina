@@ -2,8 +2,7 @@ name: evina start
 on: push
   # schedule: 
   #   - cron: '*/7 * * * *'
-permissions:
-  actions: read|write|none
+
 jobs:
   my-job:
     name: running
