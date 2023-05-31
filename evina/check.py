@@ -83,12 +83,18 @@ class Evina(Env):
                         list.append(douyin_url)
 
         dict['evina'] = {}
-        for num, conf in enumerate(list):
-            conf['status'] = 'stopping'
-            dict['evina'][num] = conf
         file = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', 'config',
                          'config.yml'))
+
+        setting = Dynaconf(settings_file=file)
+        for num, conf in enumerate(list):
+            conf['status'] = 'stopping'
+            for evina in setting.evina:
+                if conf['name'] == setting.evina[evina]['name'] and setting.evina[evina]['status'] == 'running':
+                    conf['status'] = 'running'
+            dict['evina'][num] = conf
+
         self.douyu.evina = {}
         self.douyu.evina.update(dict)
         self.douyu.evina.to_yaml(file)

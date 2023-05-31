@@ -66,15 +66,12 @@ class Douyin:
             else:
                 name = self.name
             list = []
-            flv_list = []
-            m3u8_list = []
             flv_pull_url = stream_url['flv_pull_url']
             for key, value in flv_pull_url.items():
-                flv_list.append(value)
+                list.append(value)
             hls_pull_url_map = stream_url['hls_pull_url_map']
             for key, value in hls_pull_url_map.items():
-                m3u8_list.append(value)
-            list = [*flv_list, *m3u8_list]
+                list.append(value)
             logger.info('抖音直播间 - {} - {} | 源地址为 - {}'.format(
                 name,
                 url.rsplit('/', 1)[1], list[0]))

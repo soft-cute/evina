@@ -1,5 +1,9 @@
 evina:
-  '0':
-    name: "\u871C\u6843\u6C34\u716E\u745C"
-    rtmp_url: http://pull-flv-l26.douyincdn.com/stage/stream-689567909127389323_or4.flv?expire=647ef71f&sign=dce1c243ee49fc32d1b08ef733c5bba0
+  0:
+    name: "\u7761\u4E0D\u9192\U0001F338"
+    rtmp_url: http://pull-flv-l26.douyincdn.com/stage/stream-401343324946169995_or4.flv?expire=648027b6&sign=72d3a0126c04b63c856a87dcb1c9cf10
+    status: running
+  1:
+    name: "\u5566\u5566\u5566\u5566\u5566"
+    rtmp_url: http://pull-flv-l26.douyincdn.com/stage/stream-689573386552869003_or4.flv?expire=648027ba&sign=fd7723e614975802faaf64a21d72ee2c
     status: stopping
