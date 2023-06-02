@@ -32,7 +32,7 @@ class Ffm:
                 self.conf.to_yaml(filename=file)
                 self.dict['evina'][key] = value
         os.system(
-            'bash -c "git add ./config/config.yml ./evina.log && git commit -a -m Add changes && git push"'
+            'bash -c "git add ./config/config.yml ./evina.log && git commit -m Add changes && git push -all"'
         )
         if self.dict == {}:
             sys.exit()
@@ -81,7 +81,7 @@ class Ffm:
         if value.status == 'running':
             del self.conf[key]
             os.system(
-                'bash -c "git add ./config/config.yml && git commit -a -m Add changes && git push"'
+                'bash -c "git add ./config/config.yml && git commit -m Add changes && git push -all"'
             )
 
 

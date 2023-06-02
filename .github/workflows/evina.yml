@@ -18,6 +18,9 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: set up ffmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v2
+
       - name: set up python 3.9
         uses: actions/setup-python@v4
         with: 
