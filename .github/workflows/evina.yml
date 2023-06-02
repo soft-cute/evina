@@ -34,7 +34,6 @@ jobs:
           npm install -g crypto-js
           pip install requests faker dynaconf loguru python-box[all] aligo
           python ./evina/check.py 2>&1 | tee evina.log
-          ls -a
           git config --local user.email "1933990359@qq.com"
           git config --local user.name "softcute"
           python ./evina/ffm.py
