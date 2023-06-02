@@ -42,7 +42,7 @@ class Ffm:
     def work(self):
 
         for key, value in self.dict['evina'].items():
-            time = datetime.datetime.now().date()
+            time = str(datetime.datetime.now().date())
             if 'douyu' in value.rtmp_url:
                 file = f'~/download/斗鱼录播/{key}/{time}'
                 ali_file = os.path.join('录播', '斗鱼录播', key,
