@@ -7,6 +7,7 @@
 '''
 
 import json
+import os
 import re
 import sys
 from urllib import parse
@@ -19,6 +20,7 @@ from loguru import logger
 class Douyin:
     def start(self, name, uid=None):
         self.name = name
+        self.cookies = os.getenv('DOUYIN-COOKIES')
         self.ua = Faker(locale="zh_CN").user_agent()
 
         if uid == None:
@@ -44,8 +46,7 @@ class Douyin:
         headers = {
             'user-agent': self.ua,
             'referer': 'https://live.douyin.com/',
-            'cookie':
-            'passport_csrf_token=f318cdce9b1c5216963fca3485bccd3f; passport_csrf_token_default=f318cdce9b1c5216963fca3485bccd3f; d_ticket=a5fed545b2d955efe44ab55959d23e29678c4; passport_assist_user=Cj0KPtHcW5iThx-PhqaJpip0EKwFjPKEmuMJUZ3xXN_XBfUDO8XcF3NB9CYheOE1Gm8yN_4AO7iecqC6izjTGkgKPKtXUX9cEgksIj-3SCpAhZLvbZy7OnlXMulNE4KEy0wJVJMe3yE4BdT_iIX-8_AWIQ7152-nwwhc_klB8xDS6qsNGImv1lQiAQM2bBSI; n_mh=GT6wTBJ9o6Wqu7VnHmuTt9Ok7MEOH2FanRKJ3PV1f3Q; sso_auth_status=62990bf8ea80b19f2f9474dfc016c69e; sso_auth_status_ss=62990bf8ea80b19f2f9474dfc016c69e; sso_uid_tt=47c1a304af205e748b5069ede4b1e42c; sso_uid_tt_ss=47c1a304af205e748b5069ede4b1e42c; toutiao_sso_user=505e59ea51501ea246465f621ad82efc; toutiao_sso_user_ss=505e59ea51501ea246465f621ad82efc; sid_ucp_sso_v1=1.0.0-KGY5MGEyMGFmOGRjZWVmNmE5YzRmMDcwZTgzYzMxNjI2ZGU1YTRhNjMKHQi16eH4mAMQ4rLGoAYY2hYgDDD0_bzhBTgCQPEHGgJobCIgNTA1ZTU5ZWE1MTUwMWVhMjQ2NDY1ZjYyMWFkODJlZmM; ssid_ucp_sso_v1=1.0.0-KGY5MGEyMGFmOGRjZWVmNmE5YzRmMDcwZTgzYzMxNjI2ZGU1YTRhNjMKHQi16eH4mAMQ4rLGoAYY2hYgDDD0_bzhBTgCQPEHGgJobCIgNTA1ZTU5ZWE1MTUwMWVhMjQ2NDY1ZjYyMWFkODJlZmM; passport_auth_status=839459bf55015c784f5f2fa274263893%2Cac420ca1295ff697c305f23343bfc12f; passport_auth_status_ss=839459bf55015c784f5f2fa274263893%2Cac420ca1295ff697c305f23343bfc12f; uid_tt=bec1bdb91eda06f172209890927557a2; uid_tt_ss=bec1bdb91eda06f172209890927557a2; sid_tt=2c2f8a23bb185b78c0895b9b98d0fd49; sessionid=2c2f8a23bb185b78c0895b9b98d0fd49; sessionid_ss=2c2f8a23bb185b78c0895b9b98d0fd49; store-region=cn-ha; store-region-src=uid; ttwid=1%7CsugdjtQfTgQYF-ojxrw3tYC26tUSdPw3JBf3jASbbGA%7C1678982803%7C85a549f1f64a8074675c31803be45ffc75452132fd04a001ace0637c4615be43; strategyABtestKey=%221679376293.82%22; VIDEO_FILTER_MEMO_SELECT=%7B%22expireTime%22%3A1679981093848%2C%22type%22%3A1%7D; odin_tt=2d2fb436b0583d3f315d4f051fac31cbbcce351103d40606b100e0a13fb933381ecdc6930b924369128e31ce8baa69e4; sid_guard=2c2f8a23bb185b78c0895b9b98d0fd49%7C1679376298%7C4682680%7CSun%2C+14-May-2023+10%3A09%3A38+GMT; sid_ucp_v1=1.0.0-KGJhNWZkZGNkM2Q0ZDk5ZDFiMWJkZjhkOTJkN2M2NGEwNDE1NGZlOGMKFwi16eH4mAMQqv_koAYY2hYgDDgCQPEHGgJscSIgMmMyZjhhMjNiYjE4NWI3OGMwODk1YjliOThkMGZkNDk; ssid_ucp_v1=1.0.0-KGJhNWZkZGNkM2Q0ZDk5ZDFiMWJkZjhkOTJkN2M2NGEwNDE1NGZlOGMKFwi16eH4mAMQqv_koAYY2hYgDDgCQPEHGgJscSIgMmMyZjhhMjNiYjE4NWI3OGMwODk1YjliOThkMGZkNDk; SEARCH_RESULT_LIST_TYPE=%22single%22; home_can_add_dy_2_desktop=%221%22; __ac_nonce=06419402000f37bb05f17; __ac_signature=_02B4Z6wo00f01zjRG5wAAIDCza7xAeVjiHs48R8AAKo312; __live_version__=%221.1.0.7556%22; device_web_cpu_core=4; device_web_memory_size=8; csrf_session_id=08f4add92308ff8b04ebcc86c522ce38; xgplayer_user_id=356776839587; ttcid=c0554a88abd2487ba83cf3822f1bda6675; download_guide=%223%2F20230321%22; live_can_add_dy_2_desktop=%220%22; FOLLOW_NUMBER_YELLOW_POINT_INFO=%22MS4wLjABAAAAHUap3JrG49wzgZGqrcdwxWPmuU8fPVxYq3u46HxzQcg%2F1679414400000%2F0%2F0%2F1679379232177%22; msToken=y387NvRl64R-lTVMX_MwmLgLcRBOk1MrK0s3Whzxpryg930CVhpMB3-eI-OWaIlpyeLtr2lvY56z7cwG6wEQwh2LoGK2MFPi67NO8OPLAX-h9Gs7vmArqg==; tt_scid=XBtd0zcY8B9szCJRohRwlGDVOLSFaZjnLKnBPTKcOIper6e.wSljUm21q4metV1S8230; msToken=SAYfKKCwDLjjNXaB9CpEL3lQ36tif0F-OE1N1N054up7W5t_T9nL8B7tLz45vfFEc4_YNA6u9oJKW9Cyfm5P5xHx7_Mb_t-APciIOBje2w9qLJh-5IlSOA==; passport_fe_beating_status=false',
+            'cookie': self.cookies,
             'accept':
             'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
             'accept-language':
@@ -72,10 +73,10 @@ class Douyin:
             hls_pull_url_map = stream_url['hls_pull_url_map']
             for key, value in hls_pull_url_map.items():
                 list.append(value)
-            logger.info('抖音直播间 - {} - {} | 源地址为 - {}'.format(
-                name,
-                url.rsplit('/', 1)[1], list[0]))
-            return {'name': name, 'rtmp_url': list[0]}
+                logger.info('抖音直播间 - {} - {} | 源地址为 - {}'.format(
+                    name,
+                    url.rsplit('/', 1)[1], list[0]))
+                return {name: {'rtmp_url': list[0]}}
 
         except:
             logger.info('抖音直播间 - {} | 暂未开播'.format(url.rsplit('/', 1)[1]))

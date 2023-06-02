@@ -44,7 +44,7 @@ class Douyu:
                 filename = self.name
             link = self.response['Rendata']['link']
             logger.info('斗鱼直播间 - {} | 源地址为 - {}'.format(self.rid, link))
-            return {'name':filename,'rtmp_url':link}
+            return {filename:{'rtmp_url':link}}
             
 
     def js(self):
@@ -118,10 +118,7 @@ class Douyu:
             name = self.name
 
         logger.info('斗鱼直播间 - {} - {} | 源地址为 - {}'.format(name, self.rid, http))
-        return {
-            'name':name,
-            'rtmp_url':http
-        }
+        return {name:{'rtmp_url':http}}
 
 
     def get_name(self):

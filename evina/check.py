@@ -9,6 +9,7 @@
 import os
 import time
 
+from box import Box
 from dynaconf import Dynaconf
 from loguru import logger
 
@@ -73,31 +74,36 @@ class Evina(Env):
                     douyu_url = douyu.Douyu().start(url, name)
                     time.sleep(3)
                     if douyu_url != None:
-                        list.append(douyu_url)
+                        # list.append(douyu_url)
+                        dict.update(douyu_url)
 
             if start == 'douyin':
                 for url, name in self.dict[start].items():
                     douyin_url = douyin.Douyin().start(name, url)
                     time.sleep(3)
                     if douyin_url != None:
-                        list.append(douyin_url)
+                        # list.append(douyin_url)
+                        dict.update(douyin_url)
 
-        dict['evina'] = {}
+        # dict['evina'] = {}
         file = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', 'config',
                          'config.yml'))
 
-        setting = Dynaconf(settings_file=file)
-        for num, conf in enumerate(list):
-            conf['status'] = 'stopping'
-            for evina in setting.evina:
-                if conf['name'] == setting.evina[evina]['name'] and setting.evina[evina]['status'] == 'running':
-                    conf['status'] = 'running'
-            dict['evina'][num] = conf
-
-        self.douyu.evina = {}
-        self.douyu.evina.update(dict)
-        self.douyu.evina.to_yaml(file)
+        setting = Box.from_yaml(filename=file)
+        for key, value in dict.items():
+            if setting.evina != {}:
+                if dict != {}:
+                    if dict[key] == setting.evina[key] and setting.evina[key][
+                            'status'] == 'running':
+                        dict[key]['status'] = 'running'
+                    else:
+                        dict[key]['status'] = 'stopping'
+                else:
+                    dict = setting.evina
+            else: dict[key]['status'] = 'stopping'
+        setting.evina.merge_update(dict)
+        setting.to_yaml(filename=file)
 
 
 if __name__ == '__main__':
