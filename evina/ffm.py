@@ -32,8 +32,9 @@ class Ffm:
                 value['status'] = 'running'
                 self.conf.to_yaml(filename=file)
                 self.dict['evina'][key] = value
+        add_file = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
         subprocess.run(
-            "git add . && git commit -a -m 'Add changes' && git push"
+            "bash -c 'git add {} {} && git commit -a -m Add changes && git push'".format(os.path.join(add_file,'config','config.yml'),os.path.join(add_file,'evina.log'))
         )
         if self.dict == {}:
             sys.exit()
@@ -73,6 +74,7 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../../aaa'))
+        add_file = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
         subout = subprocess.run(data)
         logger.info(subout)
 
@@ -82,7 +84,7 @@ class Ffm:
         if value.status == 'running':
             del self.conf[key]
             subprocess.run(
-                "git add ./config/config.yml && git commit -a -m 'Add changes' && git push"
+                "bash -c 'git add {} && git commit -a -m Add changes && git push'".format(os.path.join(add_file,'config','config.yml'))
             )
 
 
