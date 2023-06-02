@@ -6,7 +6,6 @@
 # @File    : douyu.py
 '''
 
-
 import datetime
 import json
 import os
@@ -44,8 +43,7 @@ class Douyu:
                 filename = self.name
             link = self.response['Rendata']['link']
             logger.info('斗鱼直播间 - {} | 源地址为 - {}'.format(self.rid, link))
-            return {filename:{'rtmp_url':link}}
-            
+            return {filename: {'rtmp_url': link}}
 
     def js(self):
         file = os.path.join(
@@ -55,8 +53,12 @@ class Douyu:
         did = '10000000000000000000000000001501'
         url = 'https://www.douyu.com/{}'.format(self.rid)
         response = requests.get(url=url)
-        try:self.rid = re.findall(r'ROOM.room_id =(\d+)', response.text, re.S)[0]
-        except:self.rid = re.findall(r'ROOM.room_id = (\d+)', response.text, re.S)[0]
+        try:
+            self.rid = re.findall(r'ROOM.room_id =(\d+)', response.text,
+                                  re.S)[0]
+        except:
+            self.rid = re.findall(r'ROOM.room_id = (\d+)', response.text,
+                                  re.S)[0]
         jsdate = re.findall(
             r'<script type="text/javascript">.*?var vdwdae325w_64we = .*?;(.*?)</script>',
             response.text, re.S)[0]
@@ -69,9 +71,9 @@ class Douyu:
         f.write(js)
         f.close()
         # thenum = os.popen('{} "{}" {},{},{}'.format(os.path.join('D:\\', 'node', 'node.exe'), file, self.rid, did, jstime)).read().replace('\n', '')
-        thenum = os.popen(
-            '{} "{}" {},{},{}'.format('/opt/hostedtoolcache/node/14.8.0/x64/bin/node', file, self.rid,
-                                      did, jstime)).read().replace('\n', '')
+        thenum = os.popen('{} "{}" {},{},{}'.format(
+            '/opt/hostedtoolcache/node/14.8.0/x64/bin/node', file, self.rid,
+            did, jstime)).read().replace('\n', '')
 
         dict = {
             'cdn': '',
@@ -106,7 +108,9 @@ class Douyu:
             logger.info('斗鱼直播间 - {} | 暂未开播'.format(self.rid))
             sys.exit()
         data = json.loads(response.text)
-        if '房间未开播' in data.values():logger.info('斗鱼直播间 - {} | 暂未开播'.format(self.rid));sys.exit()
+        if '房间未开播' in data.values():
+            logger.info('斗鱼直播间 - {} | 暂未开播'.format(self.rid))
+            sys.exit()
         rtmp_url = data['data']['rtmp_url']
         rtmp_live = data['data']['rtmp_live']
         rea_rid = rtmp_live.split('?')[0]
@@ -118,8 +122,7 @@ class Douyu:
             name = self.name
 
         logger.info('斗鱼直播间 - {} - {} | 源地址为 - {}'.format(name, self.rid, http))
-        return {name:{'rtmp_url':http}}
-
+        return {name: {'rtmp_url': http}}
 
     def get_name(self):
         url = 'https://www.douyu.com/betard/{}'.format(self.rid)

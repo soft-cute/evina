@@ -101,7 +101,8 @@ class Evina(Env):
                         dict[key]['status'] = 'stopping'
                 else:
                     dict = setting.evina
-            else: dict[key]['status'] = 'stopping'
+            else:
+                dict[key]['status'] = 'stopping'
         setting.evina.merge_update(dict)
         setting.to_yaml(filename=file)
 
