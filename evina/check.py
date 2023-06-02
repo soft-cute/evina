@@ -105,7 +105,6 @@ class Evina(Env):
                 dict[key]['status'] = 'stopping'
         setting.evina.merge_update(dict)
         setting.to_yaml(filename=file)
-        print(os.getcwd())
 
 
 if __name__ == '__main__':

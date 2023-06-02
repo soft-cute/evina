@@ -33,7 +33,7 @@ class Ffm:
                 self.conf.to_yaml(filename=file)
                 self.dict['evina'][key] = value
         subprocess.run(
-            "git add ./config/config.yml ./evina.log && git commit -a -m 'Add changes' && git push"
+            "git add . && git commit -a -m 'Add changes' && git push"
         )
         if self.dict == {}:
             sys.exit()
@@ -82,7 +82,7 @@ class Ffm:
         if value.status == 'running':
             del self.conf[key]
             subprocess.run(
-                "git add ./config/config.ymls && git commit -a -m 'Add changes' && git push"
+                "git add ./config/config.yml && git commit -a -m 'Add changes' && git push"
             )
 
 
