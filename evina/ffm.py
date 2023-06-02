@@ -9,7 +9,6 @@
 import datetime
 import os
 import shutil
-import subprocess
 import sys
 import threading
 
@@ -32,9 +31,8 @@ class Ffm:
                 value['status'] = 'running'
                 self.conf.to_yaml(filename=file)
                 self.dict['evina'][key] = value
-        add_file = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
-        subprocess.run(
-            "bash -c 'git add {} {} && git commit -a -m Add changes && git push'".format(os.path.join(add_file,'config','config.yml'),os.path.join(add_file,'evina.log'))
+        os.system(
+            'bash -c "git add ./config/config.yml ./evina.log && git commit -a -m Add changes && git push"'
         )
         if self.dict == {}:
             sys.exit()
@@ -74,8 +72,7 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../../aaa'))
-        add_file = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
-        subout = subprocess.run(data)
+        subout = os.system(data)
         logger.info(subout)
 
         alipan.Backup(local_file=file, ali_file=ali_file)
@@ -83,8 +80,8 @@ class Ffm:
         shutil.rmtree(delfile)
         if value.status == 'running':
             del self.conf[key]
-            subprocess.run(
-                "bash -c 'git add {} && git commit -a -m Add changes && git push'".format(os.path.join(add_file,'config','config.yml'))
+            os.system(
+                'bash -c "git add ./config/config.yml && git commit -a -m Add changes && git push"'
             )
 
 
