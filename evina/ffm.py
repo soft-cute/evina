@@ -64,7 +64,7 @@ class Ffm:
             #                                                         '/'), '"'
             # ])
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
-            data = f"bash -c 'ffmpeg -t 19800 -i \"{value.rtmp_url}\" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}'"
+            data = f'bash -c \"ffmpeg -t 19800 -i \"{value.rtmp_url}\" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}\"'
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
@@ -76,7 +76,9 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../..'))
-
+        conf_file = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), '..', 'config',
+                         'config.yml'))
         subout = subprocess.run(data,shell=True)
         logger.info(subout)
 
@@ -85,6 +87,7 @@ class Ffm:
         shutil.rmtree(delfile)
         if value.status == 'running':
             del self.conf.evina[key]
+            self.conf.to_yaml(conf_file)
             subprocess.run(
                 'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push --all"',shell=True
             )
