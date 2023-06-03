@@ -14,9 +14,6 @@ jobs:
     steps: 
       - name: checkout actions
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
       - name: set up ffmpeg
         run: |
@@ -35,8 +32,8 @@ jobs:
       - name: running
         run: |
           mkdir -p ~/.aligo/
-          git config --local user.email "git@qq.com"
-          git config --local user.name "Ezong"
+          git config --local user.email "1933990359@qq.com"
+          git config --local user.name "softcute"
           cat >> ~/.aligo/aligo.json << EOF
           ${{ secrets.ALIGO_TOKEN }}
           EOF
