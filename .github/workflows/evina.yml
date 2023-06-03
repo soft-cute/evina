@@ -1,7 +1,7 @@
 name: evina start
-on: push
-  # schedule: 
-  #   - cron: '*/7 * * * *'
+on: 
+  schedule: 
+    - cron: '*/7 * * * *'
 
 env: 
   TZ: Asia/Shanghai
@@ -41,9 +41,3 @@ jobs:
           pip install requests faker dynaconf loguru python-box[all] aligo
           python ./evina/check.py 2>&1 | tee evina.log
           python ./evina/ffm.py
-      #     git commit -a -m "Add changes"
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.github_token }}
-      #     branch: ${{ github.ref }}
