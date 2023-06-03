@@ -64,7 +64,7 @@ class Ffm:
             #                                                         '/'), '"'
             # ])
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
-            data = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
+            data = f'bash -c \'ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}\''
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
@@ -75,7 +75,7 @@ class Ffm:
                              )).start()
 
     def ffm(self, data, file, ali_file, key, value):
-        delfile = os.path.abspath(os.path.join(file, '../../aaa'))
+        delfile = os.path.abspath(os.path.join(file, '../..'))
 
         subout = subprocess.run(data,shell=True)
         logger.info(subout)
