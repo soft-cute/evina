@@ -46,13 +46,13 @@ class Ffm:
         for key, value in self.dict['evina'].items():
             time = str(datetime.datetime.now().date())
             if 'douyu' in value.rtmp_url:
-                file = f'~/download/斗鱼录播/{key}/{time}'
+                file = f'download/斗鱼录播/{key}/{time}'
                 ali_file = os.path.join('录播', '斗鱼录播', key,
                                         time).replace('\\', '/')
                 if not os.path.exists(file):
                     os.makedirs(file)
             if 'douyin' in value.rtmp_url:
-                file = f'~/download/抖音录播/{key}/{time}'
+                file = f'download/抖音录播/{key}/{time}'
                 ali_file = os.path.join('录播', '抖音录播', key,
                                         time).replace('\\', '/')
                 if not os.path.exists(file):
@@ -64,7 +64,7 @@ class Ffm:
             #                                                         '/'), '"'
             # ])
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
-            data = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
+            data = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
