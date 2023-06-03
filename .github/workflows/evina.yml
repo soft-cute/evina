@@ -35,14 +35,14 @@ jobs:
       - name: running
         run: |
           mkdir -p ~/.aligo/
+          git config --local user.email "1933990359@qq.com"
+          git config --local user.name "softcute"
           cat >> ~/.aligo/aligo.json << EOF
           ${{ secrets.ALIGO_TOKEN }}
           EOF
           npm install -g crypto-js
           pip install requests faker dynaconf loguru python-box[all] aligo
           python ./evina/check.py 2>&1 | tee evina.log
-          git config --local user.email "1933990359@qq.com"
-          git config --local user.name "softcute"
           python ./evina/ffm.py
       #     git commit -a -m "Add changes"
       # - name: Push changes

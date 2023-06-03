@@ -34,8 +34,8 @@ class Ffm:
                 self.dict['evina'][key] = value
 
         subprocess.run(
-            """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all'""",shell=True
-        )
+            """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all'""",
+            shell=True)
         if self.dict == {}:
             sys.exit()
         else:
@@ -63,7 +63,8 @@ class Ffm:
             #     os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace('\\',
             #                                                         '/'), '"'
             # ])
-            mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
+            mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace(
+                "\\", "/")
             data = f"""bash -c 'ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}'"""
             threading.Thread(target=self.ffm,
                              args=(
@@ -76,7 +77,7 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../..'))
-        subout = subprocess.run(data,shell=True)
+        subout = subprocess.run(data, shell=True)
         logger.info(subout)
 
         alipan.Backup(local_file=file, ali_file=ali_file)
@@ -86,9 +87,8 @@ class Ffm:
             del self.conf.evina[key]
             self.conf.to_yaml(self.file)
             subprocess.run(
-                'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push --all"',shell=True
-            )
-
+                """bash -c 'git add ./config/config.yml&& git commit -m "Add changes" && git push --all'""",
+                shell=True)
 
 
 if __name__ == '__main__':
