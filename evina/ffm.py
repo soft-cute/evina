@@ -34,7 +34,7 @@ class Ffm:
                 self.dict['evina'][key] = value
 
         subprocess.run(
-            'bash -c "git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all"',shell=True
+            """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all'""",shell=True
         )
         if self.dict == {}:
             sys.exit()
