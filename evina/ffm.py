@@ -34,7 +34,7 @@ class Ffm:
                 self.dict['evina'][key] = value
 
         subprocess.run(
-            'bash -c "git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push -all"',shell=True
+            'bash -c "git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all"',shell=True
         )
         if self.dict == {}:
             sys.exit()
@@ -64,7 +64,7 @@ class Ffm:
             #                                                         '/'), '"'
             # ])
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
-            date = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
+            data = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
@@ -86,7 +86,7 @@ class Ffm:
         if value.status == 'running':
             del self.conf[key]
             subprocess.run(
-                'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push -all"',shell=True
+                'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push --all"',shell=True
             )
 
 
