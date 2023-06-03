@@ -19,7 +19,9 @@ jobs:
           fetch-depth: 0
 
       - name: set up ffmpeg
-        uses: FedericoCarboni/setup-ffmpeg@v2
+        run: |
+          sudo apt update
+          sudo apt install ffmpeg yasm
 
       - name: set up python 3.9
         uses: actions/setup-python@v4

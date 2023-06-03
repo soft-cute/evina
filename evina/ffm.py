@@ -22,15 +22,15 @@ import alipan
 class Ffm:
     def __init__(self) -> None:
         self.dict = {}
-        file = os.path.abspath(
+        self.file = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', 'config',
                          'config.yml'))
-        self.conf = Box.from_yaml(filename=file)
+        self.conf = Box.from_yaml(filename=self.file)
         self.dict['evina'] = {}
         for key, value in self.conf.evina.items():
             if value['status'] == 'stopping':
                 value['status'] = 'running'
-                self.conf.to_yaml(filename=file)
+                self.conf.to_yaml(filename=self.file)
                 self.dict['evina'][key] = value
 
         subprocess.run(
@@ -76,9 +76,6 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../..'))
-        conf_file = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), '..', 'config',
-                         'config.yml'))
         subout = subprocess.run(data,shell=True)
         logger.info(subout)
 
@@ -87,7 +84,7 @@ class Ffm:
         shutil.rmtree(delfile)
         if value.status == 'running':
             del self.conf.evina[key]
-            self.conf.to_yaml(conf_file)
+            self.conf.to_yaml(self.file)
             subprocess.run(
                 'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push --all"',shell=True
             )
