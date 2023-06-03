@@ -35,6 +35,7 @@ jobs:
           mkdir -p ~/.aligo/
           cat >> ~/.aligo/aligo.json << EOF
           ${{ secrets.ALIGO_TOKEN }}
+          EOF
           npm install -g crypto-js
           pip install requests faker dynaconf loguru python-box[all] aligo
           python ./evina/check.py 2>&1 | tee evina.log
