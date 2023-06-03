@@ -32,11 +32,9 @@ class Ffm:
                 value['status'] = 'running'
                 self.conf.to_yaml(filename=file)
                 self.dict['evina'][key] = value
-        # os.system(
-        #     'bash -c "git add ./config/config.yml ./evina.log && git commit -m Add changes && git push -all"'
-        # )
+
         subprocess.run(
-            'bash -c "git add ./config/config.yml ./evina.log && git commit -m Add changes && git push -all"',shell=True
+            'bash -c "git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push -all"',shell=True
         )
         if self.dict == {}:
             sys.exit()
@@ -59,12 +57,14 @@ class Ffm:
                                         time).replace('\\', '/')
                 if not os.path.exists(file):
                     os.makedirs(file)
-            data = ' '.join([
-                'bash -c "ffmpeg -t 19800 -i ', "'", value.rtmp_url, "'",
-                '-c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 ',
-                os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace('\\',
-                                                                    '/'), '"'
-            ])
+            # data = ' '.join([
+            #     'bash -c "ffmpeg -t 19800 -i ', f"{value.rtmp_url}",
+            #     '-c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 ',
+            #     os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace('\\',
+            #                                                         '/'), '"'
+            # ])
+            mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace("\\","/")
+            date = f'bash -c "ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 {mp4_file}"'
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
@@ -76,7 +76,7 @@ class Ffm:
 
     def ffm(self, data, file, ali_file, key, value):
         delfile = os.path.abspath(os.path.join(file, '../../aaa'))
-        # subout = os.system(data)
+
         subout = subprocess.run(data,shell=True)
         logger.info(subout)
 
@@ -86,11 +86,9 @@ class Ffm:
         if value.status == 'running':
             del self.conf[key]
             subprocess.run(
-                'bash -c "git add ./config/config.yml && git commit -m Add changes && git push -all"',shell=True
+                'bash -c "git add ./config/config.yml && git commit -m "Add changes" && git push -all"',shell=True
             )
-            # os.system(
-            #     'bash -c "git add ./config/config.yml && git commit -m Add changes && git push -all"'
-            # )
+
 
 
 if __name__ == '__main__':

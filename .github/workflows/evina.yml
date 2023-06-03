@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p ~/.aligo/
           echo ${{ secrets.ALIGO_TOKEN}} > ~/.aligo/aligo.json
-          sed -i "s/url = git@github.com:/url = ${{ secrets.github_token }}@github.com\//" .git/config
+          # sed -i "s/url = git@github.com:/url = ${{ secrets.github_token }}@github.com\//" .git/config
           npm install -g crypto-js
           pip install requests faker dynaconf loguru python-box[all] aligo
           python ./evina/check.py 2>&1 | tee evina.log
