@@ -94,11 +94,13 @@ class Evina(Env):
         for key, value in dict.items():
             if setting.evina != {}:
                 if dict != {}:
-                    if dict[key] == setting.evina[key] and setting.evina[key][
-                            'status'] == 'running':
-                        dict[key]['status'] = 'running'
-                    else:
-                        dict[key]['status'] = 'stopping'
+                    try:        
+                        if dict[key] == setting.evina[key] and setting.evina[key][
+                                'status'] == 'running':
+                            dict[key]['status'] = 'running'
+                        else:
+                            dict[key]['status'] = 'stopping'
+                    except:dict[key]['status'] = 'stopping'
                 else:
                     dict = setting.evina
             else:

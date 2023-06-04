@@ -34,7 +34,7 @@ class Ffm:
                 self.dict['evina'][key] = value
 
         subout = subprocess.run(
-            """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all'""",
+            """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all --force'""",
             shell=True)
         logger.info(subout)
         if self.dict == {}:
@@ -58,12 +58,7 @@ class Ffm:
                                         time).replace('\\', '/')
                 if not os.path.exists(file):
                     os.makedirs(file)
-            # data = ' '.join([
-            #     'bash -c "ffmpeg -t 19800 -i ', f"{value.rtmp_url}",
-            #     '-c:a copy -c:v copy -preset ultrafast -f segment -segment_time 3600 -strftime 1 ',
-            #     os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace('\\',
-            #                                                         '/'), '"'
-            # ])
+
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace(
                 "\\", "/")
             data = f"""bash -c 'ffmpeg -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}'"""
@@ -88,7 +83,7 @@ class Ffm:
             del self.conf.evina[key]
             self.conf.to_yaml(self.file)
             subout1 = subprocess.run(
-                """bash -c 'git add ./config/config.yml&& git commit -m "Add changes" && git push --all'""",
+                """bash -c 'git add ./config/config.yml&& git commit -m "Add changes" && git push --all --force'""",
                 shell=True)
             logger.info(subout1)
 

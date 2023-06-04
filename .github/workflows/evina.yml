@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p ~/.aligo/
           git config --local user.email "1933990359@qq.com"
-          git config --local user.name "softcute"
+          git config --local user.name "soft-cute"
           cat >> ~/.aligo/aligo.json << EOF
           ${{ secrets.ALIGO_TOKEN }}
           EOF
