@@ -25,10 +25,10 @@ class Douyu:
         self.rid = rid
         self.ua = Faker(locale="zh_CN").user_agent()
         try:
-            return self.api()
-        except:
             self.data = self.js()
             return self.rea_rid()
+        except:
+            return self.api()
 
     def api(self):
         url = 'https://web.sinsyth.com/lxapi/douyujx.x?rid={}'.format(self.rid)
