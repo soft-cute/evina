@@ -72,7 +72,7 @@ class Ffm:
                              )).start()
 
     def ffm(self, data, file, ali_file, key, value):
-        delfile = os.path.abspath(os.path.join(file, '../..'))
+        delfile = os.path.abspath(os.path.join(file, '..'))
         subout = subprocess.run(data, shell=True)
         logger.info(subout)
 
