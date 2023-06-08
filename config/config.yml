@@ -1,9 +1,1 @@
-evina:
-  什么佳:
-    rtmp_url: 
-      http://pull-flv-l26.douyincdn.com/stage/stream-401372432472998027_or4.flv?expire=6486c3d0&sign=0e3250e307c7d3dfbe12a6fb62919932
-    status: stopping
-  一片安乃近:
-    rtmp_url: 
-      http://open-tct.douyucdn2.cn/dyliveflv3a/4229991r9zpompg8_2000.flv?wsAuth=70d0e3a3d764b60b2d80497dcacebc27&token=cpn-androidmpro-0-4229991-b4ff6a54df8e426be229e7621caa4eb9a6c80803c9a46c1d&logo=0&expire=0&did=22bbf97bc92401f89fe5758c51077e56&origin=tct&vhost=play4&sid=351560249
-    status: stopping
+evina: {}

@@ -37,7 +37,7 @@ class Ffm:
             """bash -c 'git add ./config/config.yml ./evina.log && git commit -m "Add changes" && git push --all --force'""",
             shell=True)
         logger.info(subout)
-        if self.dict == {}:
+        if self.dict["evina"] == {}:
             sys.exit()
         else:
             self.work()

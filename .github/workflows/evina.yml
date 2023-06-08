@@ -17,8 +17,9 @@ jobs:
 
       - name: set up ffmpeg
         run: |
-          sudo apt update
-          sudo apt install ffmpeg yasm
+          tar xvf ./ffm/ffmpeg-n6.0-latest-linux64-gpl-6.0.tar.xz
+          sudo ln -s $PWD/ffmpeg-n6.0-latest-linux64-gpl-6.0/bin/ffmpeg /bin/ffmpeg
+          rm -rf ffm
 
       - name: set up python 3.9
         uses: actions/setup-python@v4
