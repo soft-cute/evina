@@ -95,7 +95,8 @@ class Evina(Env):
             if setting.evina != {}:
                 if dict != {}:
                     try:
-                        if setting.evina[key]['status'] == 'running':dict[key]['status'] = 'running'
+                        # if setting.evina[key]['status'] == 'running':dict[key]['status'] = 'running'
+                        if setting.evina[key]['status'] == 'running':del dict[key]
                         else:dict[key]['status'] = 'stopping'
                     except:dict[key]['status'] = 'stopping'
                 else:

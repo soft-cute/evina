@@ -84,7 +84,7 @@ class Ffm:
         try:
             shutil.rmtree('ffm')
         except:pass
-        time.sleep(num = random.random())
+        time.sleep(random.random())
         if value.status == 'running':
             del self.conf.evina[key]
             self.conf.to_yaml(self.file,encoding='utf8')
