@@ -39,6 +39,6 @@ jobs:
           ${{ secrets.ALIGO_TOKEN }}
           EOF
           npm install -g crypto-js
-          pip install requests faker dynaconf loguru python-box[all] aligo
+          pip install requests faker dynaconf loguru python-box[all] aligo PyExecJS
           python ./evina/check.py 2>&1 | tee evina.log
           python ./evina/ffm.py
