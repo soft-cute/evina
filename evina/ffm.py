@@ -78,12 +78,6 @@ class Ffm:
         subout = subprocess.run(data, shell=True)
         logger.info(subout)
 
-        alipan.Backup(local_file=file, ali_file=ali_file)
-
-        shutil.rmtree(delfile)
-        try:
-            shutil.rmtree('ffm')
-        except:pass
         time.sleep(random.random())
         if value.status == 'running':
             del self.conf.evina[key]
@@ -92,6 +86,13 @@ class Ffm:
                 """bash -c 'git add ./config/config.yml&& git commit -m "Add changes" && git push --all --force'""",
                 shell=True)
             logger.info(subout1)
+
+        alipan.Backup(local_file=file, ali_file=ali_file)
+
+        shutil.rmtree(delfile)
+        try:
+            shutil.rmtree('ffm')
+        except:pass
 
 
 if __name__ == '__main__':
