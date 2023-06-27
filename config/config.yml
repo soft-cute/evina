@@ -1,1 +1,9 @@
-evina: {}
+evina:
+  邦Sa:
+    rtmp_url: 
+      https://stream-changsha-ct-113-240-120-69.edgesrv.com:443/live/5720533rEC7Us8xF_4000.flv?wsAuth=eea501feaa1723bb23ec4ae58d7d90ec&token=web-h5-0-5720533-0a608c69d2cbd2d24fbca3953712e00d4d375f6ab0c5601a&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=351694230&vhost=play3&origin=tct&mix=0&isp=scdncthuncshw
+    status: running
+  仙某某:
+    rtmp_url: 
+      https://stream-hubei2-ct-116-207-135-14.edgesrv.com:443/live/1457640rTDKVcLaU_4000p.flv?wsAuth=51abd1859e324024cc227877986eb5ab&token=web-h5-0-1457640-2f3e9731c8986be5d8bd52c4d92af1fde3d20a269c91c473&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354160358&vhost=play1&origin=tct&mix=0&isp=scdncthubyc
+    status: stopping

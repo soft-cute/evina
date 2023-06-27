@@ -64,7 +64,6 @@ class Evina(Env):
     def __init__(self) -> None:
 
         super().__init__()
-        list = []
         dict = {}
         for start in self.dict:
             if start == 'douyu':
@@ -74,7 +73,6 @@ class Evina(Env):
                     douyu_url = douyu.Douyu().start(url, name)
                     time.sleep(3)
                     if douyu_url != None:
-                        # list.append(douyu_url)
                         dict.update(douyu_url)
 
             if start == 'douyin':
@@ -82,16 +80,14 @@ class Evina(Env):
                     douyin_url = douyin.Douyin().start(name, url)
                     time.sleep(3)
                     if douyin_url != None:
-                        # list.append(douyin_url)
                         dict.update(douyin_url)
 
-        # dict['evina'] = {}
         file = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', 'config',
                          'config.yml'))
 
         setting = Box.from_yaml(filename=file)
-        for key, value in dict.items():
+        for key, value in list(dict.items()):
             if setting.evina != {}:
                 if dict != {}:
                     try:
