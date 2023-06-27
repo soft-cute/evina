@@ -86,6 +86,7 @@ class Evina(Env):
             os.path.join(os.path.dirname(__file__), '..', 'config',
                          'config.yml'))
 
+
         setting = Box.from_yaml(filename=file)
         for key, value in list(dict.items()):
             if setting.evina != {}:
