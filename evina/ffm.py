@@ -63,7 +63,7 @@ class Ffm:
 
             mp4_file = os.path.join(file, "%Y-%m-%d-%H-%M-%S.mp4").replace(
                 "\\", "/")
-            data = f"""bash -c 'ffmpeg -rw_timeout 20000000 -t 19800 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}'"""
+            data = f"""bash -c 'ffmpeg -t 18000 -i "{value.rtmp_url}" -c:a copy -c:v copy -f segment -segment_time 3600 -strftime 1 {mp4_file}'"""
             threading.Thread(target=self.ffm,
                              args=(
                                  data,
@@ -78,7 +78,7 @@ class Ffm:
         subout = subprocess.run(data, shell=True)
         logger.info(subout)
 
-        time.sleep(random.random())
+        time.sleep(random.randint(1,10))
         if value.status == 'running':
             del self.conf.evina[key]
             self.conf.to_yaml(self.file,encoding='utf8')

@@ -1,5 +1,1 @@
-evina:
-  邦Sa:
-    rtmp_url: 
-      https://stream-changsha-ct-113-240-120-69.edgesrv.com:443/live/5720533rEC7Us8xF_4000.flv?wsAuth=eea501feaa1723bb23ec4ae58d7d90ec&token=web-h5-0-5720533-0a608c69d2cbd2d24fbca3953712e00d4d375f6ab0c5601a&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=351694230&vhost=play3&origin=tct&mix=0&isp=scdncthuncshw
-    status: running
+evina: {}
