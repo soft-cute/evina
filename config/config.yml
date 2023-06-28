@@ -1,1 +1,13 @@
-evina: {}
+evina:
+  邦Sa:
+    rtmp_url: 
+      https://huos3.douyucdn2.cn/live/5720533rQnDymCMm_4000.flv?wsAuth=716e97c61bb070e889f59d6d6c7c7a3b&token=web-h5-0-5720533-0a608c69d2cbd2d21158b613df7662ed8cb23e3a6b8892a2&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354242290&origin=tct&mix=0&isp=
+    status: running
+  Tony托公子:
+    rtmp_url: 
+      https://huos3a.douyucdn2.cn/live/6442973rEdUpioNM.flv?wsAuth=0d8ff4b4f213a3f91c47599bf2d6124e&token=web-h5-0-6442973-e44872e7ee76078ea4d0f15f5ac0f8892e2adebe60e1f89b&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354260795&origin=tct&mix=0&isp=
+    status: running
+  仙某某:
+    rtmp_url: 
+      https://huosa.douyucdn2.cn/live/1457640rTDKVcLaU_4000.flv?wsAuth=7f8cedddb4df19c2474837b3b201100d&token=web-h5-0-1457640-2f3e9731c8986be58cad3337176a47ef0dcfa3b629ec4695&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354262959&origin=tct&mix=0&isp=
+    status: running
