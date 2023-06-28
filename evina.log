@@ -1,15 +1,15 @@
-[32m2023-06-28 22:21:16.149[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m57[0m - [1m程序开始执行[0m
-[32m2023-06-28 22:21:16.149[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/60277459084[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/403359338848[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/714315108897[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/356282885524/[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 5720533[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 6442973[0m
-[32m2023-06-28 22:21:16.150[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 88080[0m
-[32m2023-06-28 22:21:18.492[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 等离子. - 60277459084 | 暂未开播[0m
-[32m2023-06-28 22:21:22.793[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 姚姚 - 403359338848 | 暂未开播[0m
-[32m2023-06-28 22:21:27.580[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - uu呀 - 714315108897 | 暂未开播[0m
-[32m2023-06-28 22:21:32.435[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 快乐女孩💋 - 356282885524 | 暂未开播[0m
-[32m2023-06-28 22:21:38.662[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - 邦Sa - 5720533 | 源地址为 - https://huos3.douyucdn2.cn/live/5720533rQnDymCMm_4000.flv?wsAuth=716e97c61bb070e889f59d6d6c7c7a3b&token=web-h5-0-5720533-0a608c69d2cbd2d21158b613df7662ed8cb23e3a6b8892a2&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354242290&origin=tct&mix=0&isp=[0m
-[32m2023-06-28 22:21:44.319[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - Tony托公子 - 6442973 | 源地址为 - https://huos3a.douyucdn2.cn/live/6442973rEdUpioNM.flv?wsAuth=0d8ff4b4f213a3f91c47599bf2d6124e&token=web-h5-0-6442973-e44872e7ee76078ea4d0f15f5ac0f8892e2adebe60e1f89b&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354260795&origin=tct&mix=0&isp=[0m
-[32m2023-06-28 22:21:49.554[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - 仙某某 - 1457640 | 源地址为 - https://huosa.douyucdn2.cn/live/1457640rTDKVcLaU_4000.flv?wsAuth=7f8cedddb4df19c2474837b3b201100d&token=web-h5-0-1457640-2f3e9731c8986be58cad3337176a47ef0dcfa3b629ec4695&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354262959&origin=tct&mix=0&isp=[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m57[0m - [1m程序开始执行[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/60277459084[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/403359338848[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/714315108897[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyin | ID/URL - https://live.douyin.com/356282885524/[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 5720533[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 6442973[0m
+[32m2023-06-28 22:35:57.890[0m | [1mINFO    [0m | [36m__main__[0m:[36m__init__[0m:[36m60[0m - [1m平台 - douyu | ID/URL - 88080[0m
+[32m2023-06-28 22:36:00.843[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 等离子. - 60277459084 | 暂未开播[0m
+[32m2023-06-28 22:36:06.369[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 姚姚 - 403359338848 | 暂未开播[0m
+[32m2023-06-28 22:36:11.244[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - uu呀 - 714315108897 | 暂未开播[0m
+[32m2023-06-28 22:36:15.867[0m | [1mINFO    [0m | [36mdouyin[0m:[36mgeturl[0m:[36m95[0m - [1m抖音直播间 - 快乐女孩💋 - 356282885524 | 暂未开播[0m
+[32m2023-06-28 22:36:27.013[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - 邦Sa - 5720533 | 源地址为 - https://hls3-akm.douyucdn.cn/live/5720533rQnDymCMm_4000/playlist.m3u8?wsAuth=2d5e349587af54042531d75533b234d3&token=web-h5-0-5720533-0a608c69d2cbd2d269818823f9995dcaac50303c164241da&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354242290&origin=tct&mix=0&isp=[0m
+[32m2023-06-28 22:36:32.431[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - Tony托公子 - 6442973 | 源地址为 - https://tc-tct.douyucdn2.cn/dyliveflv3a/6442973rEdUpioNM.flv?wsAuth=902f262886363cb1275182dd0632116a&token=web-h5-0-6442973-e44872e7ee76078e07a546c3f1360cf8bbad7a5fbd6bb6c4&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354260795&origin=tct&mix=0&isp=[0m
+[32m2023-06-28 22:36:38.078[0m | [1mINFO    [0m | [36mdouyu[0m:[36mpc_url[0m:[36m69[0m - [1m斗鱼直播间 - 仙某某 - 1457640 | 源地址为 - https://hlsa-akm.douyucdn.cn/live/1457640rTDKVcLaU_4000/playlist.m3u8?wsAuth=4e853d9fbbbcd4a2f6950387c9f4c805&token=web-h5-0-1457640-2f3e9731c8986be5b692900f994dddc63bc60c7ba65c019b&logo=0&expire=0&did=10000000000000000000000000001501&pt=2&st=0&sid=354262959&origin=tct&mix=0&isp=[0m
